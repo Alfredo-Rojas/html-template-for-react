@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
+
+	<!-- Bootstrap CSS -->
+	<!--suppress JSUnresolvedLibraryURL -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+	<!--suppress JSUnresolvedLibraryURL -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
+	<!--suppress JSUnresolvedLibraryURL -->
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/>
+	<link href="resources/sumoselect/sumoselect.css" rel="stylesheet"/>
+	<link href="resources/hamburgers-master/hamburgers.css" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/responsive.css" rel="stylesheet" type="text/css"/>
+
+	<title>Date Picker</title>
+</head>
+<body>
+
+
+<!-- NAVBAR -->
+<section id="nav-bar">
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-z bg-white">
+		<a class="navbar-brand" href="index.html"><img src="img/footer-logo.svg" alt="logo"></a>
+		<div class="float-right d-block d-lg-none">
+			<button class="advanced-search mx-2" data-dismiss="modal" aria-label="Close">
+				<img src="img/search-icon-dark.svg" alt="search-icon">
+			</button>
+			<button data-toggle="modal" data-dismiss="modal" aria-label="Close" data-target="#login-modal"
+			        class="mx-2">
+				<img src="img/add-to-fave-dark.svg" alt="add-fav-icon">
+			</button>
+			<button data-dismiss="modal" aria-label="Close" data-toggle="modal"
+			        data-target="#logged-in-menu" class="hamburger hamburger--slider mx-2">
+				<span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+				</span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<form class="form-inline">
+						<button class="nav-search-icon m-2" type="button">
+							<img src="img/search-icon-dark.svg" alt="search-icon">
+						</button>
+						<input class="form-control navbar-search" type="search" aria-label="Search">
+						<button type="button" class="advanced-search p-2">advanced</button>
+					</form>
+				</li>
+				<li class="nav-item">
+					<div class="nav-link add-to-fave px-xl-5 px-lg-2">
+						<label class="tooltip-grid">
+							<input class="grid-checkbox" type="checkbox">
+							<span class="grid-checkmark"></span>
+						</label>
+					</div>
+				</li>
+				<li class="nav-item">
+					<div class="add-to-fave logged-in-dropdown">
+						<a class="nav-link" href="#">
+							<img src="img/person.jpg" alt="person" class=""> My account
+						</a>
+						<div class="logged-in">
+							<a href="settings.html">MY ACCOUNT</a>
+							<a href="my-adverts.html">MY ADVERTS</a>
+							<a href="favorites.html">FAVORITES</a>
+							<a href="#">POST NEW ADD</a>
+							<button type="button" class="login-button-drop bg-dark text-white border-0"
+							        data-toggle="modal"
+							        data-target="#login-modal">
+								log out
+							</button>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item px-5">
+					<div class="wrap-pulse">
+						<div class="bg-post-add"></div>
+						<button class="nav-link post-ad-navbar pulse-post-add">POST AD</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</section>
+
+<!-- SITE MAP -->
+<section id="site-map">
+	<div class="container-fluid">
+		<div class="site-map">
+			<a href="index-logged-in.html">home</a> &gt; <a href="#">post add</a>
+		</div>
+	</div>
+</section>
+
+<!-- DATE PICKER -->
+<section id="date-picker">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<p class="date-time-picker_p">Choose date &amp; time if you want to show ad in specific time</p>
+			</div>
+			<div class="col-md-4">
+				<div class="time-picker">
+					<h3 class="date-padding-minus mb-md-1 m-0"><img class="my-2 pr-3" alt="calendar" src="img/calendar.svg">Choose
+						date</h3>
+					<input aria-label="" id="datepicker" class="w-100 border-0" readonly>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="time-picker m-md-0 mb-5">
+					<h3 class="responsive-inline-block"><img class="my-2 pr-3" alt="clock" src="img/clock.svg">Choose
+						time</h3>
+					<select aria-label="">
+						<option value="1">10 : 00</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="time-picker">
+					<h3 class="responsive-inline-block"><img class="my-2 pr-3" alt="clock" src="img/clock.svg">Choose
+						time</h3>
+					<select aria-label="">
+						<option value="1">10 : 00</option>
+						<option value="2">11 : 05</option>
+						<option value="3">12 : 10</option>
+						<option value="4">13 : 15</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center mt-5">
+			<div class="col-lg-4 col-md-6 col-12">
+				<button class="advanced-search-button mt-5">submit</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 order-4 order-md-1 text-center text-md-left">
+				<div class="p-4">
+					<img alt="footer-logo" src="img/footer-logo.svg">
+					<h5 class="footer-logo-h5">KiwiDom Ogłoszenia nieruchomości</h5>
+				</div>
+			</div>
+			<div class="col-md-4 order-md-2 order-1 text-center text-md-left">
+				<div class="footer-newsletter">
+					<h4>Zapisz się do newslettera</h4>
+					<p>
+						Szybko i łatwo dostawaj emaile z nowościami.
+						<br>
+						Bez spamowania.
+					</p>
+					<div class="footer-newsletter-div">
+						<label class="m-0">
+							<input placeholder="twój email…" type="text">
+						</label>
+						<button type="button">Subskrybuj</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-6 order-3">
+				<div class="footer-links">
+					<ul class="text-md-center">
+						<li>
+							<a href="#">Strona główna</a>
+						</li>
+						<li>
+							<a href="#">Rejestracja</a>
+						</li>
+						<li>
+							<a href="#">Logowanie</a>
+						</li>
+						<li>
+							<a href="#">Reset hasła</a>
+						</li>
+						<li>
+							<a href="#">Dodaj ogłoszenie</a>
+						</li>
+						<li>
+							<a href="#">Moje ogłoszenia</a>
+						</li>
+						<li>
+							<a href="#">Ustawienia konta</a>
+						</li>
+						<li>
+							<a href="#">Kanał RSS</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-2 col-6 order-2">
+				<div class="footer-links">
+					<ul class="text-md-center">
+						<li>
+							<a href="#">Pomoc</a>
+						</li>
+						<li>
+							<a href="#">O nas</a>
+						</li>
+						<li>
+							<a href="#">Regulamin</a>
+						</li>
+						<li>
+							<a href="#">Polityka prywatności</a>
+						</li>
+						<li>
+							<a href="#">Płatności</a>
+						</li>
+						<li>
+							<a href="#">Kontakt</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- ADVANCED SEARCH -->
+<section id="advanced-search">
+	<div class="advanced-window pb-5">
+		<button class="advanced-close advanced-close-style d-none d-md-inline-block" type="button">✕</button>
+		<form action="">
+			<div class="container-fluid mt-md-5 mt-0">
+				<div class="row d-none d-md-flex">
+					<div class="col-md-2">
+						<label class="custom-radio-container">
+							<input type="radio" checked="checked" name="sell-rent-option">
+							<span class="checkmark">buy</span>
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="custom-radio-container">
+							<input type="radio" name="sell-rent-option">
+							<span class="checkmark">rent</span>
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="custom-radio-container">
+							<input type="radio" name="sell-rent-option">
+							<span class="checkmark">sell</span>
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="custom-radio-container">
+							<input type="radio" name="sell-rent-option">
+							<span class="checkmark">swap</span>
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="custom-radio-container">
+							<input type="radio" name="sell-rent-option">
+							<span class="checkmark">service</span>
+						</label>
+					</div>
+					<div class="col-md-2">
+						<label class="custom-radio-container">
+							<input type="radio" name="sell-rent-option">
+							<span class="checkmark">give away</span>
+						</label>
+					</div>
+				</div>
+
+				<div class="row mt-md-5 mt-3">
+					<div class="col-lg-2 col-md-4 my-3 m-md-0">
+						<input aria-label="" class="advanced-drop-input" type="text" placeholder="keyword">
+					</div>
+					<div class="col-lg-2 col-md-4 m-md-0">
+						<div class="input-group">
+							<input aria-label="" class="form-control advanced-drop-input"
+							       type="text" placeholder="Location">
+							<div class="input-group-append">
+								<select aria-label="">
+									<option value=">1km">>1km</option>
+									<option value=">10km">>10km</option>
+									<option value=">20km">>20km</option>
+									<option value=">50km">>50km</option>
+									<option value=">100km">>100km</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4 col-6 m-md-0 mt-3">
+						<select aria-label="">
+							<option data-display="Region">Region</option>
+							<option value="1">Some option</option>
+							<option value="2">Another option</option>
+							<option value="3">A disabled option</option>
+							<option value="4">Potato</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-4 col-6 m-lg-0 mt-3 mt-md-3">
+						<select aria-label="">
+							<option data-display="Building">Building</option>
+							<option value="1">Some option</option>
+							<option value="2">Another option</option>
+							<option value="3">A disabled option</option>
+							<option value="4">Potato</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-4 col-6 m-lg-0 mt-3 mt-md-3">
+						<select aria-label="" multiple>
+							<option selected data-display="Level">Level</option>
+							<option value="1">Some option</option>
+							<option value="2">Another option</option>
+							<option value="3">A disabled option</option>
+							<option value="4">Potato</option>
+						</select>
+					</div>
+					<div class="col-lg-2 col-md-4 col-6 m-lg-0 mt-3 mt-md-3">
+						<select aria-label="" multiple>
+							<option selected data-display="Room">Room</option>
+							<option value="1">Some option</option>
+							<option value="2">Another option</option>
+							<option value="3">A disabled option</option>
+							<option value="4">Potato</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row mt-md-5 mt-3">
+					<div class="col-md-3 col-6">
+						<select aria-label="">
+							<option value="">Min Price</option>
+							<option value="50000">£50,000</option>
+							<option value="60000">£60,000</option>
+							<option value="70000">£70,000</option>
+							<option value="80000">£80,000</option>
+							<option value="90000">£90,000</option>
+							<option value="100000">£100,000</option>
+							<option value="110000">£110,000</option>
+							<option value="120000">£120,000</option>
+							<option value="125000">£125,000</option>
+							<option value="130000">£130,000</option>
+							<option value="140000">£140,000</option>
+							<option value="150000">£150,000</option>
+							<option value="160000">£160,000</option>
+							<option value="170000">£170,000</option>
+							<option value="175000">£175,000</option>
+							<option value="180000">£180,000</option>
+							<option value="190000">£190,000</option>
+							<option value="200000">£200,000</option>
+							<option value="210000">£210,000</option>
+							<option value="220000">£220,000</option>
+							<option value="230000">£230,000</option>
+							<option value="240000">£240,000</option>
+							<option value="250000">£250,000</option>
+							<option value="260000">£260,000</option>
+							<option value="270000">£270,000</option>
+							<option value="280000">£280,000</option>
+							<option value="290000">£290,000</option>
+							<option value="300000">£300,000</option>
+							<option value="325000">£325,000</option>
+							<option value="350000">£350,000</option>
+							<option value="375000">£375,000</option>
+							<option value="400000">£400,000</option>
+							<option value="425000">£425,000</option>
+							<option value="450000">£450,000</option>
+							<option value="475000">£475,000</option>
+							<option value="500000">£500,000</option>
+							<option value="550000">£550,000</option>
+							<option value="600000">£600,000</option>
+							<option value="650000">£650,000</option>
+							<option value="700000">£700,000</option>
+							<option value="800000">£800,000</option>
+							<option value="900000">£900,000</option>
+							<option value="1000000">£1,000,000</option>
+							<option value="1250000">£1,250,000</option>
+							<option value="1500000">£1,500,000</option>
+							<option value="1750000">£1,750,000</option>
+							<option value="2000000">£2,000,000</option>
+							<option value="2500000">£2,500,000</option>
+							<option value="3000000">£3,000,000</option>
+							<option value="4000000">£4,000,000</option>
+							<option value="5000000">£5,000,000</option>
+							<option value="7500000">£7,500,000</option>
+							<option value="10000000">£10,000,000</option>
+							<option value="15000000">£15,000,000</option>
+							<option value="20000000">£20,000,000</option>
+						</select>
+					</div>
+					<div class="col-md-3 col-6">
+						<select aria-label="">
+							<option value="">Max Price</option>
+							<option value="50000">£50,000</option>
+							<option value="60000">£60,000</option>
+							<option value="70000">£70,000</option>
+							<option value="80000">£80,000</option>
+							<option value="90000">£90,000</option>
+							<option value="100000">£100,000</option>
+							<option value="110000">£110,000</option>
+							<option value="120000">£120,000</option>
+							<option value="125000">£125,000</option>
+							<option value="130000">£130,000</option>
+							<option value="140000">£140,000</option>
+							<option value="150000">£150,000</option>
+							<option value="160000">£160,000</option>
+							<option value="170000">£170,000</option>
+							<option value="175000">£175,000</option>
+							<option value="180000">£180,000</option>
+							<option value="190000">£190,000</option>
+							<option value="200000">£200,000</option>
+							<option value="210000">£210,000</option>
+							<option value="220000">£220,000</option>
+							<option value="230000">£230,000</option>
+							<option value="240000">£240,000</option>
+							<option value="250000">£250,000</option>
+							<option value="260000">£260,000</option>
+							<option value="270000">£270,000</option>
+							<option value="280000">£280,000</option>
+							<option value="290000">£290,000</option>
+							<option value="300000">£300,000</option>
+							<option value="325000">£325,000</option>
+							<option value="350000">£350,000</option>
+							<option value="375000">£375,000</option>
+							<option value="400000">£400,000</option>
+							<option value="425000">£425,000</option>
+							<option value="450000">£450,000</option>
+							<option value="475000">£475,000</option>
+							<option value="500000">£500,000</option>
+							<option value="550000">£550,000</option>
+							<option value="600000">£600,000</option>
+							<option value="650000">£650,000</option>
+							<option value="700000">£700,000</option>
+							<option value="800000">£800,000</option>
+							<option value="900000">£900,000</option>
+							<option value="1000000">£1,000,000</option>
+							<option value="1250000">£1,250,000</option>
+							<option value="1500000">£1,500,000</option>
+							<option value="1750000">£1,750,000</option>
+							<option value="2000000">£2,000,000</option>
+							<option value="2500000">£2,500,000</option>
+							<option value="3000000">£3,000,000</option>
+							<option value="4000000">£4,000,000</option>
+							<option value="5000000">£5,000,000</option>
+							<option value="7500000">£7,500,000</option>
+							<option value="10000000">£10,000,000</option>
+							<option value="15000000">£15,000,000</option>
+							<option value="20000000">£20,000,000</option>
+						</select>
+					</div>
+					<div class="col-md-3 col-6 mt-3 mt-md-0">
+						<select aria-label="">
+							<option data-display="Meters from">Meters from</option>
+							<option value="1">Some option</option>
+							<option value="2">Another option</option>
+							<option value="3">A disabled option</option>
+							<option value="4">Potato</option>
+						</select>
+					</div>
+					<div class="col-md-3 col-6 mt-3 mt-md-0">
+						<select aria-label="">
+							<option data-display="Meters to">Meters to</option>
+							<option value="1">Some option</option>
+							<option value="2">Another option</option>
+							<option value="3">A disabled option</option>
+							<option value="4">Potato</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row mt-4">
+					<div class="col-md-2 col-6">
+						<label class="checkbox-container text-secondary">Raty
+							<input type="checkbox">
+							<span class="advanced-checkmark"></span>
+						</label>
+					</div>
+					<div class="col-md-2 col-6">
+						<label class="checkbox-container text-secondary">Furnished
+							<input type="checkbox">
+							<span class="advanced-checkmark"></span>
+						</label>
+					</div>
+					<div class="col-md-2 col-6">
+						<label class="checkbox-container text-secondary">Lift
+							<input type="checkbox">
+							<span class="advanced-checkmark"></span>
+						</label>
+					</div>
+					<div class="col-md-2 col-6">
+						<label class="checkbox-container text-secondary">Parking
+							<input type="checkbox">
+							<span class="advanced-checkmark"></span>
+						</label>
+					</div>
+					<div class="col-md-2 col-6">
+						<label class="checkbox-container text-secondary">Bills included
+							<input type="checkbox">
+							<span class="advanced-checkmark"></span>
+						</label>
+					</div>
+					<div class="col-md-2 col-6">
+						<label class="checkbox-container text-secondary">Garage
+							<input type="checkbox">
+							<span class="advanced-checkmark"></span>
+						</label>
+					</div>
+				</div>
+
+				<div class="row justify-content-center mt-3">
+					<div class="col-12 col-md-4 col-xl-2">
+						<button class="advanced-search-button">search</button>
+						<button type="button"
+						        class="advanced-search-button bg-white text-green mt-3 advanced-close d-inline-block d-md-none">
+							cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+
+<!-- COOKIE POLICY -->
+<div id="cookie-policy">
+	<p>
+		Szanowny użytkowniku, ta strona używa ciasteczek (cookies), dzięki którym nasz serwis może działać lepiej.
+		Więcej
+		na ten temat w dziale <a href="#">Cookies</a>. Pragniemy Cię poinformować, że nasz serwis internetowy może
+		personalizować treści
+		marketingowe do Twoich potrzeb. Wyrażenie zgody jest dobrowolne. Masz prawo do: dostępu do Twoich danych, ich
+		sprostowania oraz usunięcia. Więcej na ten znajdziesz w <a href="#">Polityce Prywatności</a>.
+	</p>
+
+	<div class="d-block clearfix mt-3 text-center mb-3 m-sm-0">
+		<button class="close-cookie float-none float-sm-right">Akceptuje</button>
+	</div>
+	<div class="d-block text-center">
+		<button class="close-cookie-bottom">close</button>
+	</div>
+</div>
+
+
+<!-- NEWS LETTER MODAL -->
+<section id="newsletter-modal-section">
+	<div class="modal fade" id="newsletter-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content newsletter-bg">
+				<div class="modal-body p-0">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid no-gutters">
+							<div class="row no-gutters">
+								<div class="col-6 d-none d-md-block">
+									<img src="img/newsletter-img.png" alt="newsletter-img" class="img-fluid">
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="newsletter-right">
+										<h1>Wygraj koszulkę</h1>
+										<p>Wystarczy zapisać się do newslettera i raz w miesiącu masz szanse wygrać
+											super koszulkę!</p>
+										<label class="d-block" for="newsletter-modal-section">
+											<input placeholder="Twój email…" type="text" class="modal-input-text">
+											<button class="advanced-search-button my-3" type="button">Sign up!</button>
+											<button data-dismiss="modal" aria-label="Close"
+											        class="advanced-search-button bg-transparent my-3 d-block d-sm-none"
+											        type="button">Cancel
+											</button>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- LOGIN MODAL -->
+<section id="login-modal-section">
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<p class="text-center">Log in</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="login-modal-section">
+										<input placeholder="Login" type="text" class="modal-input-text">
+										<input placeholder="Password" type="password" class="modal-input-text">
+										<button class="advanced-search-button my-3" type="button">log in</button>
+										<button class="advanced-search-button bg-white text-green my-3" type="button"
+										        data-dismiss="modal" aria-label="Close">
+											cancel
+										</button>
+										<a class="modal-link my-3" href="#" data-dismiss="modal" aria-label="Close"
+										   data-toggle="modal" data-target="#forgotten-password-modal-1">Forgotten
+											password</a>
+										<a class="modal-link my-3" href="#" data-dismiss="modal" aria-label="Close"
+										   data-toggle="modal" data-target="#register-modal">Not a member yet?
+											<span style="font-family: 'HKGrotesk-Medium', sans-serif;">Register now</span>
+										</a>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- REGISTER MODAL -->
+<section id="register-modal-section">
+	<div class="modal fade" id="register-modal" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content pb-5">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<p class="text-center">Register</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="register-modal-section">
+										<input placeholder="Company or name" type="text" class="modal-input-text">
+										<input placeholder="Email" type="text" class="modal-input-text">
+										<input placeholder="Password" type="password" class="modal-input-text">
+										<input placeholder="Repeat password" type="password" class="modal-input-text">
+										<input placeholder="Captcha" type="text" class="modal-input-text mt-4">
+
+										<label class="checkbox-container text-dark pl-4" style="font-size: .6rem;">Zgadzam
+											się na otrzymywanie informacji handlowych i
+											marketingowych, zarówno w imieniu własnym jak i na zlecenie innych osób,
+											informacji
+											handlowych
+											drogą elektroniczną wysyłanych przez KiwiDom.pl
+											<input type="checkbox">
+											<span class="advanced-checkmark" style="left: 0;"></span>
+										</label>
+
+										<label class="checkbox-container text-dark pl-4" style="font-size: .6rem;">Akceptuje
+											regulamin i politykę prywatności serwisu
+											<input type="checkbox">
+											<span class="advanced-checkmark" style="left: 0;"></span>
+										</label>
+
+										<button class="advanced-search-button my-3" type="button">register</button>
+
+										<button class="advanced-search-button bg-white text-green my-3 d-block d-md-none"
+										        type="button" data-dismiss="modal" aria-label="Close">
+											cancel
+										</button>
+
+										<a class="modal-link my-3 mb-5" href="#" data-dismiss="modal" aria-label="Close"
+										   data-toggle="modal" data-target="#login-modal">
+											Got an account? <span style="font-family: 'HKGrotesk-Medium', sans-serif;">Log in now</span>
+										</a>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- FORGOTTEN PASSWORD MODAL 1 -->
+<section id="forgotten-password-modal-section-1">
+	<div class="modal fade" id="forgotten-password-modal-1" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<p class="text-center">Password reset</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="forgotten-password-modal-section-1">
+										<input placeholder="Email" type="text" class="modal-input-text">
+										<input placeholder="Captcha" type="text" class="modal-input-text">
+
+										<button class="advanced-search-button my-3" type="button" data-dismiss="modal"
+										        aria-label="Close"
+										        data-toggle="modal" data-target="#forgotten-password-modal-2">
+											reset
+										</button>
+
+										<a class="modal-link my-3" href="#" data-dismiss="modal" aria-label="Close"
+										   data-toggle="modal" data-target="#register-modal">Not a member yet?
+											<span style="font-family: 'HKGrotesk-Medium', sans-serif;">Register now</span>
+										</a>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- FORGOTTEN PASSWORD MODAL 2 -->
+<section id="forgotten-password-modal-section-2">
+	<div class="modal fade" id="forgotten-password-modal-2" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<p class="text-center">Set new password</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="forgotten-password-modal-section-1">
+										<input placeholder="Name" type="text" class="modal-input-text">
+										<input placeholder="Email" type="text" class="modal-input-text">
+									</label>
+								</div>
+								<div class="col-12">
+									<p class="text-center">New password</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="forgotten-password-modal-section-1">
+										<input placeholder="Password" type="password" class="modal-input-text">
+										<input placeholder="Confirm password" type="password" class="modal-input-text">
+
+										<button class="advanced-search-button my-3" type="button" data-dismiss="modal"
+										        aria-label="Close"
+										        data-toggle="modal" data-target="#forgotten-password-modal-3">
+											confirm
+										</button>
+
+										<a class="modal-link my-3" href="#" data-dismiss="modal" aria-label="Close"
+										   data-toggle="modal" data-target="#register-modal">Not a member yet?
+											<span style="font-family: 'HKGrotesk-Medium', sans-serif;">Register now</span>
+										</a>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- FORGOTTEN PASSWORD MODAL 3 -->
+<section id="forgotten-password-modal-section-3">
+	<div class="modal fade" id="forgotten-password-modal-3" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content transparent-class">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<p class="text-center text-white">Password changed!</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="forgotten-password-modal-section-1">
+										<button class="advanced-search-button my-3" type="button" data-dismiss="modal"
+										        aria-label="Close">
+											confirm
+										</button>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- LOGIN POST ADD MODAL -->
+<section id="login-post-add-modal-section">
+	<div class="modal fade" id="login-modal-post-add" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<p class="text-center">Log in</p>
+								</div>
+								<div class="col-12">
+									<label class="d-block" for="login-modal-section">
+										<input placeholder="Login" type="text" class="modal-input-text">
+										<input placeholder="Password" type="password" class="modal-input-text">
+										<button class="advanced-search-button my-3" type="button">log in</button>
+										<button class="advanced-search-button bg-white text-green my-3" type="button"
+										        data-dismiss="modal" aria-label="Close">
+											post add
+										</button>
+										<a class="modal-link my-3" href="#" data-dismiss="modal" aria-label="Close"
+										   data-toggle="modal" data-target="#register-modal">Not a member yet?
+											<span style="font-family: 'HKGrotesk-Medium', sans-serif;">Register now</span>
+										</a>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- LOGGED IN MENU -->
+<section id="logged-in-menu-section">
+	<div class="modal fade" id="logged-in-menu" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-body py-3">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<img alt="modal-close-icon" src="img/close.svg">
+					</button>
+					<form action="">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<label class="d-block" for="login-modal-section">
+										<a href="settings.html"
+										   class="advanced-search-button my-3 text-black bg-white border-black">my
+											account</a>
+
+										<a href="my-adverts.html"
+										   class="advanced-search-button my-3 text-black bg-white border-black">my
+											adverts</a>
+
+										<a href="favorites.html"
+										   class="advanced-search-button my-3 text-black bg-white border-black">favorites</a>
+
+										<a class="advanced-search-button bg-white text-green mt-5 mb-3"
+										   data-dismiss="modal" aria-label="Close">
+											post add
+										</a>
+
+										<a class="advanced-search-button my-3 text-light">log out</a>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<!--suppress JSUnresolvedLibraryURL -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<!--suppress HtmlUnknownTarget -->
+<script src="resources/flickity/flickity.js"></script>
+<script src="resources/sumoselect/jquery.sumoselect.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
